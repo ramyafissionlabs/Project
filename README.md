@@ -1,5 +1,5 @@
 # Project
-###Swaglabs
+Swaglabs
 
 # Pre-requisites:
 
@@ -8,28 +8,27 @@
 3.   Install git.\
      NodeJS installed. To verify if nodejs is installed properly, open Command Prompt on Windows, or Terminal on Mac, then execute this command node --version
      
-3.   VisualStudio Code
-4.   This test requires cypress version 9.7.0 or below
-
-# Installation Process 
-1.  Create One Folder in desktop/ program files
-2.  
+3.   VisualStudio Code.\
+     Download visual studio code editor,click on windows,download visual studio code editor  and run that one,\
+     it will start installation and accept the agreement and   install it.
 
 
-# Description:
-
-There are some folders in this repository.\
-First is the fixture folder where we keep our test data. I have not used any test data for the task.\
-second is the integration folder. This is where our test scripts are available. In this swaglabs.js is our task.\
-Next is the support folder. In this there are two .json files.
-one is command.js for reusable functions. I have kept some common functions and index.js is first file cypressrunner executes.\
-I have kept uncaught exception error function.\
-Other one is plugins. I have not used for this task.\
-Reports folder is there where the generated mochaawesome report are available.\
- Video folder is there in this execution of the script exists.
-
+# Installation Process:
+1.  Create One Folder in desktop/ program files or any where.\
+2.  Open this folder and clone our project to this folder by using git bash here, and type git clone 'our project url'.\
+3.  Go to visual studio code ,upload created folder into visual studio code by using open folder.\
+4.  In Visual Studio Code Click on Terminal and take command Prompt here.\
+5.  Run  ‘npm init ‘command generates package.json
+      We can provide Package name,author here.click on yes, run the command dir,it shows the directory.\
+5.  Install cypress by using: npm install --save-dev cypress@9.6.0.(In this we install cypress 9.6.0 version).\
+6.  We want to open the cypress test runner and we use the command:npx cypress open.\
+      
+# Project Description:
+In our project main folder is Integration Folder, in this scripts are existed.
+Under Support Folder command.js is there,in this reusability functionalities are existed.
+In integration folder 3 scripts are there, 1st is login functionality of Swaglabs application,2nd one is Validate social links,3rd one is Ordering lowest and highest price items.
 # Steps to run script:
+1. For run these scripts we run command npx cypress open
+2. In that select each individual test script and scripts are executed
 
-1.npx cypress open to open the testrunner.
-2.In that select swaglabs.js
-3.our script executed.
+
