@@ -28,9 +28,9 @@ Swaglabs
 
 Cypress was originally designed to run end-to-end (E2E) tests on anything that runs in a browser. A typical E2E test visits the application in a browser and performs actions via the UI just like a real user would.
 Under integration folder 3 scripts are available:.\
-1.login functionality of Swaglabs application,
-2.Validate social links
-3.Ordering lowest and highest price items.
+1. login functionality of Swaglabs application,
+2. Validate social links
+3. Ordering lowest and highest price items.
 
 # Steps to run script:
 1. To run these scripts,run command npx cypress open.
