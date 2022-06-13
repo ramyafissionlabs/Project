@@ -13,8 +13,12 @@ describe("Shopping Highest and Lowest Items", () => {
     cy.contains("Products");
     
   });
+  
+  afterEach("Logout from the application", () => {
+    // Logs out from the application
+    cy.logout();
+  })
 
-  //Oredering lowest Price item
   it("Test For ordering lowest price item ", () => {
     //Calls the Productpage function exist in command.js in support
     
@@ -53,7 +57,7 @@ describe("Shopping Highest and Lowest Items", () => {
           });
       });
 
-    //validate index because to validate how many items we selected that much items we contain or not
+    //validate index as to validate number of items we have selected that many items are in cart or not
     cy.get(".cart_quantity").should("have.text", "1");
     // clicking Checkout
     cy.get("#checkout").should("contain.text", "Checkout").click();
@@ -73,11 +77,9 @@ describe("Shopping Highest and Lowest Items", () => {
     cy.get("#finish").should("have.text", "Finish").click();
     //Validate my oreder is placed or not
     cy.get(".complete-header").should("have.text", "THANK YOU FOR YOUR ORDER");
-    //this logout function i.e in command.js in support folder it is reusable
-    cy.logout();
   });
 
-  //Ordering highest price item
+  
   it("Test For ordering highest price item ", () => {
     //cy.ProductsPage();
     //select option  high  to low  for selecting highest cost item
@@ -94,7 +96,7 @@ describe("Shopping Highest and Lowest Items", () => {
         console.log(hprice);
         cy.wrap($el).should("contain.text", hprice);
       });
-    //Vlaidate select item
+    //Validate select item
     cy.get(".inventory_item_name")
       .eq(0)
       .then((textvalidation) => {
@@ -119,7 +121,7 @@ describe("Shopping Highest and Lowest Items", () => {
             expect(s_text).to.be.equal(c_text);
           });
       });
-    //validate index because to validate how many items we selected that much items we contain or not
+    // Verify index because to validate how many items we have selected that many items contain or not
     cy.get(".cart_quantity").should("have.text", "1");
     // clicking Checkout
     cy.get("#checkout").should("contain.text", "Checkout").click();
@@ -134,7 +136,7 @@ describe("Shopping Highest and Lowest Items", () => {
       "contain.text",
       "Checkout: Overview"
     );
-    //validate whether we are getting whatever item we selected
+    // Verify whether we are getting whatever item we selected
     cy.get("#item_5_title_link").should(
       "have.text",
       "Sauce Labs Fleece Jacket"
@@ -142,7 +144,5 @@ describe("Shopping Highest and Lowest Items", () => {
     cy.get("#finish").should("have.text", "Finish").click();
     //Validate my oreder is placed or not
     cy.get(".complete-header").should("have.text", "THANK YOU FOR YOUR ORDER");
-    //this logout function i.e in command.js in support folder it is reusable
-    cy.logout();
   });
 });
