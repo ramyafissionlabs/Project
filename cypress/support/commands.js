@@ -24,14 +24,24 @@
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
 
+/**
+ * Command that simulates the user logging out from the web application by clicking
+ * on the logout button. This functionality is required by some UI tests that require
+ * users to logout and log back in.
+ * @param {string} username account email
+ * @param {string} password account password
+ */
 Cypress.Commands.add("login", (username, password) => {
     cy.get('[placeholder="Username"]').type(username);
     cy.get('[placeholder="Password"]').type(password);
     cy.get('input[name="login-button"]').click();
   });
-  //This function called Logout function
   
-  //This functionality is required users to logout and log back in
+/**
+ * Command that simulates the user logging out from the web application by clicking
+ * on the logout button. This functionality is required by some UI tests that require
+ * users to logout and log back in.
+ */
   Cypress.Commands.add("logout", () =>
     //Custom Logout function created
     {
@@ -42,9 +52,11 @@ Cypress.Commands.add("login", (username, password) => {
       cy.get("#logout_sidebar_link").click();
     }
   );
-  //This function called clearing function
+
+  /**
+ * This command clears the data
+ */
   Cypress.Commands.add("clear_update", () =>
-    //Custom clear_upadate function created
     {
       //Clear  the username field
       cy.get('[placeholder="Username"]').clear();
