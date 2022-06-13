@@ -1,0 +1,126 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 2,
+    "passes": 2,
+    "pending": 0,
+    "failures": 0,
+    "start": "2022-06-13T13:38:29.293Z",
+    "end": "2022-06-13T13:38:37.015Z",
+    "duration": 7722,
+    "testsRegistered": 2,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "44b20dd8-7109-4918-aa70-8696887bb292",
+      "title": "",
+      "fullFile": "cypress/integration/price.spec.js",
+      "file": "cypress/integration/price.spec.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "a7aa2de9-90d5-4581-a545-aa057e0b2bf3",
+          "title": "Shopping Highest and Lowest Items",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Test For ordering lowest price item ",
+              "fullTitle": "Shopping Highest and Lowest Items Test For ordering lowest price item ",
+              "timedOut": null,
+              "duration": 3363,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "//Calls the Productpage function exist in command.js in support\n//select option low to high  for selecting lowest cost item\ncy.get(\".product_sort_container\").select(\"Price (low to high)\").as(\"val\");\ncy.get(\"@val\").should(\"have.value\", \"lohi\");\ncy.get(\".active_option\").should(\"contain.text\", \"Price (low to high)\"); // Validate whether first element in the list is  the lowest price item or not\ncy.get(\".inventory_item_price\").eq(0).then($el => {\n  var lprice = $el.text(); //dynamically generate 7.99\n  console.log(lprice); //checking we are getting price valure or not\n  cy.wrap($el).should(\"contain.text\", lprice);\n}); //validate title of the lowest price item\ncy.get(\".inventory_item_name\").eq(0).then(textvalidation => {\n  let c_text = textvalidation.text();\n  console.log(c_text);\n  cy.wrap(textvalidation).should(\"contain.text\", c_text); //Click on add cart option\n  cy.get(\"#add-to-cart-sauce-labs-onesie\").should(\"contain.text\", \"Add to cart\").click(); //Click on shopping link\n  cy.get(\".shopping_cart_link\").click(); //validate selected item and in add to cart item same or not\n  cy.get(\".inventory_item_name\").eq(0).then(textvalidation_sl => {\n    let s_text = textvalidation_sl.text();\n    console.log(s_text);\n    expect(s_text).to.be.equal(c_text);\n  });\n}); //validate index because to validate how many items we selected that much items we contain or not\ncy.get(\".cart_quantity\").should(\"have.text\", \"1\"); // clicking Checkout\ncy.get(\"#checkout\").should(\"contain.text\", \"Checkout\").click(); //validate whether we are in checkout page or not\ncy.get(\".title\").should(\"have.text\", \"Checkout: Your Information\"); //type information for proceeding order\ncy.get(\"#first-name\").type(\"Ramya\");\ncy.get(\"#last-name\").type(\"Sri\");\ncy.get(\"#postal-code\").type(\"50006\");\ncy.get(\"#continue\").click();\ncy.get(\".header_secondary_container .title\").should(\"contain.text\", \"Checkout: Overview\"); //validate whether we are getting whatever item we selected\ncy.get(\"#item_2_title_link\").should(\"have.text\", \"Sauce Labs Onesie\");\ncy.get(\"#finish\").should(\"have.text\", \"Finish\").click(); //Validate my oreder is placed or not\ncy.get(\".complete-header\").should(\"have.text\", \"THANK YOU FOR YOUR ORDER\"); //this logout function i.e in command.js in support folder it is reusable\ncy.logout();",
+              "err": {},
+              "uuid": "a99ecc7f-cecf-40ef-a40b-41d362e360e3",
+              "parentUUID": "a7aa2de9-90d5-4581-a545-aa057e0b2bf3",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Test For ordering highest price item ",
+              "fullTitle": "Shopping Highest and Lowest Items Test For ordering highest price item ",
+              "timedOut": null,
+              "duration": 3054,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "//cy.ProductsPage();\n//select option  high  to low  for selecting highest cost item\ncy.get(\".product_sort_container\").select(\"Price (high to low)\").as(\"hval\"); //first element in the list,i.e the highest  price\ncy.get(\"@hval\").should(\"have.value\", \"hilo\"); //Validate active option is high to low or not\ncy.get(\".active_option\").should(\"contain.text\", \"Price (high to low)\"); //eq(0);//invoke('text');\n//first element in the list,i.e the lowest price,capture that value\ncy.get(\".inventory_item_price\").first().then($el => {\n  var hprice = $el.text(); //dynamically generate 49.99\n  console.log(hprice);\n  cy.wrap($el).should(\"contain.text\", hprice);\n}); //Vlaidate select item\ncy.get(\".inventory_item_name\").eq(0).then(textvalidation => {\n  let c_text = textvalidation.text();\n  console.log(c_text);\n  cy.wrap(textvalidation).should(\"contain.text\", c_text); //Click on add cart option\n  cy.get(\"#add-to-cart-sauce-labs-fleece-jacket\").should(\"contain.text\", \"Add to cart\");\n  cy.get(\"#add-to-cart-sauce-labs-fleece-jacket\").click(); //Click on shopping link\n  cy.get(\".shopping_cart_link\").click(); //validate selected item and in add to cart item same or not\n  cy.get(\".inventory_item_name\").eq(0).then(textvalidation_sl => {\n    let s_text = textvalidation_sl.text();\n    console.log(s_text);\n    expect(s_text).to.be.equal(c_text);\n  });\n}); //validate index because to validate how many items we selected that much items we contain or not\ncy.get(\".cart_quantity\").should(\"have.text\", \"1\"); // clicking Checkout\ncy.get(\"#checkout\").should(\"contain.text\", \"Checkout\").click(); //validate whether we are in checkout page or not\ncy.get(\".title\").should(\"have.text\", \"Checkout: Your Information\"); //type information for proceeding order\ncy.get(\"#first-name\").type(\"Ramya\");\ncy.get(\"#last-name\").type(\"Sri\");\ncy.get(\"#postal-code\").type(\"50006\");\ncy.get(\"#continue\").click();\ncy.get(\".header_secondary_container .title\").should(\"contain.text\", \"Checkout: Overview\"); //validate whether we are getting whatever item we selected\ncy.get(\"#item_5_title_link\").should(\"have.text\", \"Sauce Labs Fleece Jacket\");\ncy.get(\"#finish\").should(\"have.text\", \"Finish\").click(); //Validate my oreder is placed or not\ncy.get(\".complete-header\").should(\"have.text\", \"THANK YOU FOR YOUR ORDER\"); //this logout function i.e in command.js in support folder it is reusable\ncy.logout();",
+              "err": {},
+              "uuid": "64a3f740-24fe-4794-bec7-332cbc58605d",
+              "parentUUID": "a7aa2de9-90d5-4581-a545-aa057e0b2bf3",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "a99ecc7f-cecf-40ef-a40b-41d362e360e3",
+            "64a3f740-24fe-4794-bec7-332cbc58605d"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 6417,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "id": "default",
+        "reportDir": "cypress/reports/mocha",
+        "quite": true,
+        "overwrite": false,
+        "html": true,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}
