@@ -20,15 +20,20 @@ Swaglabs
 4.  In Visual Studio Code Click on Terminal and take command Prompt here.
 5.  Run  ‘npm init ‘command generates package.json
       We can provide Package name,author here.click on yes, run the command dir,it shows the directory.
-5.  Install cypress by using: npm install --save-dev cypress@9.6.0.(In this we install cypress 9.6.0 version).
+      Make sure that you have already run npm init or have a node_modules folder or package.json file in the root of your project to ensure cypress is     installed in the correct directory.
+5.  Install cypress by using: npm install --save-dev cypress@9.6.0.(to install cypress 9.6.0 version).
 6.  We want to open the cypress test runner and we use the command:npx cypress open.
       
 # Project Description:
-In our project main folder is Integration Folder, in this scripts are existed.
-Under Support Folder command.js is there,in this reusability functionalities are existed.
-In integration folder 3 scripts are there, 1st is login functionality of Swaglabs application,2nd one is Validate social links,3rd one is Ordering lowest and highest price items.
+
+Cypress was originally designed to run end-to-end (E2E) tests on anything that runs in a browser. A typical E2E test visits the application in a browser and performs actions via the UI just like a real user would.
+Under integration folder 3 scripts are available:
+1.login functionality of Swaglabs application,
+2.Validate social links
+3.Ordering lowest and highest price items.
+
 # Steps to run script:
-1. For run these scripts we run command npx cypress open
-2. In that select each individual test script and scripts are executed
+1. To run these scripts,run command npx cypress open.
+2. Test runner opens and choose test scripts to be executed.
 
 
