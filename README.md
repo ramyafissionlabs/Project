@@ -4,10 +4,10 @@ Swaglabs
 # Pre-requisites:
 
 1.   Install Node js.\
-      Git client installed. To verify if git client is installed properly, open Command Prompt on Windows, or Terminal on Mac, then execute this command git --version
-3.   Install git.\
      NodeJS installed. To verify if nodejs is installed properly, open Command Prompt on Windows, or Terminal on Mac, then execute this command node --version
-     
+2.   Install git.\
+     Git client installed. To verify if git client is installed properly, open Command Prompt on Windows, or Terminal on Mac, then execute this command git --version
+
 3.   VisualStudio Code.\
      Download visual studio code editor,click on windows,download visual studio code editor  and run that one,\
      it will start installation and accept the agreement and   install it.
