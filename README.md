@@ -14,14 +14,14 @@ Swaglabs
 
 
 # Installation Process:
-1.  Create One Folder in desktop/ program files or any where.\
-2.  Open this folder and clone our project to this folder by using git bash here, and type git clone 'our project url'.\
-3.  Go to visual studio code ,upload created folder into visual studio code by using open folder.\
-4.  In Visual Studio Code Click on Terminal and take command Prompt here.\
+1.  Create One Folder in desktop/ program files or any where.
+2.  Open this folder and clone our project to this folder by using git bash here, and type git clone 'our project url'.
+3.  Go to visual studio code ,upload created folder into visual studio code by using open folder.
+4.  In Visual Studio Code Click on Terminal and take command Prompt here.
 5.  Run  ‘npm init ‘command generates package.json
-      We can provide Package name,author here.click on yes, run the command dir,it shows the directory.\
-5.  Install cypress by using: npm install --save-dev cypress@9.6.0.(In this we install cypress 9.6.0 version).\
-6.  We want to open the cypress test runner and we use the command:npx cypress open.\
+      We can provide Package name,author here.click on yes, run the command dir,it shows the directory.
+5.  Install cypress by using: npm install --save-dev cypress@9.6.0.(In this we install cypress 9.6.0 version).
+6.  We want to open the cypress test runner and we use the command:npx cypress open.
       
 # Project Description:
 In our project main folder is Integration Folder, in this scripts are existed.
